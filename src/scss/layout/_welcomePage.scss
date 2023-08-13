@@ -1,0 +1,68 @@
+@use '../util/' as u;
+@use "sass:color";
+
+.grid {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 60rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+
+    &__logo-container {
+        position: relative;
+    }
+
+    &__logo {
+        grid-column: span 1;
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
+    .hat-glow {
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        box-shadow:
+            0 0 u.rem(60) u.rem(30) #0094ff,  
+            0 0 u.rem(100) u.rem(60) #0095ff95,
+            0 0 u.rem(140) u.rem(90) #0095ff4f;
+        width: u.rem(1);
+        height: u.rem(1);
+        top: 50%;
+        left: 40%;
+        transform: translate(-50%,-50%);
+    }
+
+    &__content {
+        grid-column: span 2;
+        
+    }
+
+    &__start-btn {
+        font-family: inherit;
+        background-color: var(--background-color);
+        color: var(--primary-color);
+        border: u.rem(2) solid var(--primary-color);
+        border-radius: u.rem(10);
+        cursor: pointer;
+        font-size: 1.5rem;
+        padding: .3rem 2rem;
+        
+        transition: 200ms ;
+
+        &:hover {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            box-shadow: 0px 5px 10px 2px #0095ff95;
+            transform: translateY(-5px);
+        }
+
+        &:active {
+            transform: scale(.98);
+        }
+    }
+}

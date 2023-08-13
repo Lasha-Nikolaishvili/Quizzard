@@ -1,0 +1,19 @@
+@use "sass:math";
+
+@function rem($pixels) {
+    @if math.is-unitless($pixels) {
+        @return math.div($pixels, 16) + rem;
+    }
+    @else {
+        @error 'You Can\'t use values with units in this function';
+    }
+}
+
+@function em($pixels) {
+    @if math.is-unitless($pixels) {
+        @return math.div($pixels, 16) + em;
+    }
+    @else {
+        @error 'You Can\'t use values with units in this function';
+    }
+}
