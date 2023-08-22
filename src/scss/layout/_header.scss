@@ -5,5 +5,7 @@ header {
         width: 3rem;
         height: 3rem;
         cursor: pointer;
+        user-select: none;
+        -webkit-user-drag: none;
     }
 }
