@@ -2,7 +2,7 @@ import React from "react";
 import anime from 'animejs'
 import quizzardLogo  from '../assets/quizzard_logo.svg'
 
-export default function WelcomeComp() {
+export default function WelcomeComp({setHasStarted}) {
     anime({
         targets: '.grid__logo, .hat-glow',
         direction: 'alternate',
@@ -21,7 +21,7 @@ export default function WelcomeComp() {
             </div>
             <div className='grid__content'>
                 <h1 className='grid__title'>Welcome to <span className='title'>Quizzard</span></h1>
-                <button className='grid__start-btn'>Start Quiz</button>
+                <button className='grid__start-btn' onClick={() => setHasStarted(prev => !prev)}>Start Quiz</button>
             </div>
         </div>
     )

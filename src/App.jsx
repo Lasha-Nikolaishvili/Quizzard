@@ -1,7 +1,7 @@
 import React from 'react'
-// import '../dist/style.css'
-import WelcomeComp from './components/WelcomeComp'
 import Header from './components/Header'
+import WelcomeComp from './components/WelcomeComp'
+import Quiz from './components/Quiz'
 
 
 function App() {
@@ -9,9 +9,10 @@ function App() {
 
   return (
     <>
-      {hasStarted && <Header />}
+      {hasStarted && <Header setHasStarted={setHasStarted}/>}
       <main>
-        {!hasStarted && <WelcomeComp />}
+        {!hasStarted && <WelcomeComp setHasStarted={setHasStarted}/>}
+        {hasStarted && <Quiz setHasStarted={setHasStarted}/>}
       </main>
     </>
   )
