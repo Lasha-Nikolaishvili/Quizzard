@@ -28,15 +28,14 @@ export default function Result({questionData, userAnswer}) {
     }
 
     function displayAnswers() {
-        return allAnswers.map((answer) => {
+        return allAnswers.map((answer, i) => {
             if (answer === correctAnswer) {
-                return <button style = {correctAnswerStyleswrongAnswerStyles} className='result__btn-group__btn'>{convertHtmlToText(answer)}</button>
+                return <button key={i} style = {correctAnswerStyleswrongAnswerStyles} className='result__btn-group__btn'>{convertHtmlToText(answer)}</button>
             } else if(answer !== correctAnswer && userAnswer.userAnswer === answer){
-                return <button style = {wrongAnswerStyles} className='result__btn-group__btn'>{convertHtmlToText(answer)}</button>
+                return <button key={i} style = {wrongAnswerStyles} className='result__btn-group__btn'>{convertHtmlToText(answer)}</button>
             } else {
-                return <button className='result__btn-group__btn'>{convertHtmlToText(answer)}</button>
+                return <button key={i} className='result__btn-group__btn'>{convertHtmlToText(answer)}</button>
             }
-            
         })
     }
    

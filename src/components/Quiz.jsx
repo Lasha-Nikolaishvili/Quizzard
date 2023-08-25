@@ -23,18 +23,13 @@ export default function Quiz({setHasStarted}) {
 
     function displayQuestions() {
         return quizData.map((entry, i) => {
-            return entry?.[i] && questionNum === i && <Question questionData = {entry} setQuestionNum = {setQuestionNum} setUserAnswers = {setUserAnswers}/>
+            return entry && questionNum === i && <Question key={i} questionData = {entry} setQuestionNum = {setQuestionNum} setUserAnswers = {setUserAnswers}/>
         })
     }
 
     return (
         <div className='quiz-window'>
-            {/* {displayQuestions()} */}
-            {quizData?.[0] && questionNum === 0 && <Question questionData = {quizData[0]} setQuestionNum = {setQuestionNum} setUserAnswers = {setUserAnswers}/>}
-            {quizData?.[1] && questionNum === 1 && <Question questionData = {quizData[1]} setQuestionNum = {setQuestionNum} setUserAnswers = {setUserAnswers}/>}
-            {quizData?.[2] && questionNum === 2 && <Question questionData = {quizData[2]} setQuestionNum = {setQuestionNum} setUserAnswers = {setUserAnswers}/>}
-            {quizData?.[3] && questionNum === 3 && <Question questionData = {quizData[3]} setQuestionNum = {setQuestionNum} setUserAnswers = {setUserAnswers}/>}
-            {quizData?.[4] && questionNum === 4 && <Question questionData = {quizData[4]} setQuestionNum = {setQuestionNum} setUserAnswers = {setUserAnswers}/>}
+            {displayQuestions()}
             {questionNum <= quizData.length-1 && <span className='question-num'>{questionNum + 1} / {quizData.length}</span>}
             {questionNum > quizData.length-1 && <QuizResults userAnswers = {userAnswers} setHasStarted = {setHasStarted} questionsData = {quizData}/>}
         </div>

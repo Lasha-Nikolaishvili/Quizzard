@@ -22,7 +22,7 @@ export default function Question({questionData, setQuestionNum, setUserAnswers})
 
     function displayAnswers() {
         return allAnswers.map((answer, i) => (
-            <button onClick={() => handleClick(i)} className='btn-group__btn'>{convertHtmlToText(answer)}</button>
+            <button key={i} onClick={() => handleClick(i)} className='btn-group__btn'>{convertHtmlToText(answer)}</button>
         ))
     }
 
