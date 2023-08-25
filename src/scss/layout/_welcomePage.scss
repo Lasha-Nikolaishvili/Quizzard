@@ -43,15 +43,10 @@
     }
 
     &__start-btn {
-        font-family: inherit;
-        background-color: var(--background-color);
-        color: var(--primary-color);
-        border: u.rem(2) solid var(--primary-color);
-        border-radius: u.rem(10);
-        cursor: pointer;
+        @include u.blue-btn();
+
         font-size: 1.5rem;
         padding: .3rem 2rem;
-        
         transition: 200ms ;
 
         &:hover {

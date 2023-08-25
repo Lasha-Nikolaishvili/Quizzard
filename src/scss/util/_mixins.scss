@@ -1,0 +1,10 @@
+@use './functions' as f;
+
+@mixin blue-btn() {
+    font-family: inherit;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    border: f.rem(2) solid var(--primary-color);
+    border-radius: f.rem(10);
+    cursor: pointer;
+}

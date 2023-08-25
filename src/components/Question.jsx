@@ -2,6 +2,7 @@ import React from 'react'
 
 export default function Question({questionData, setQuestionNum, setUserAnswers}) {
     const {correct_answer: correctAnswer, incorrect_answers: incorrectAnswers, question} = questionData
+    const allAnswers = shuffleArray([...incorrectAnswers, correctAnswer])
     
     function convertHtmlToText(html) {
         const parser = new DOMParser();
@@ -15,21 +16,21 @@ export default function Question({questionData, setQuestionNum, setUserAnswers})
 
     function handleClick(answerIndex) {
         const userAnswer = allAnswers[answerIndex]
-        setUserAnswers((prevUserAnsweres => [...prevUserAnsweres, {userAnswer, correctAnswer}]))
-
+        setUserAnswers((prevUserAnswers => [...prevUserAnswers, {userAnswer: userAnswer, correctAnswer:correctAnswer}]))
         setQuestionNum(prevNum => prevNum + 1)
     }
 
-    const allAnswers = shuffleArray([...incorrectAnswers, correctAnswer])
-   
+    function displayAnswers() {
+        return allAnswers.map((answer, i) => (
+            <button onClick={() => handleClick(i)} className='btn-group__btn'>{convertHtmlToText(answer)}</button>
+        ))
+    }
+
     return (
         <div>
             <h1 className='question'>{convertHtmlToText(question)}</h1>
             <div className="btn-group">
-                <button onClick={() => handleClick(0)} className='btn-group__btn'>{convertHtmlToText(allAnswers[0])}</button>
-                <button onClick={() => handleClick(1)} className='btn-group__btn'>{convertHtmlToText(allAnswers[1])}</button>
-                <button onClick={() => handleClick(2)} className='btn-group__btn'>{convertHtmlToText(allAnswers[2])}</button>
-                <button onClick={() => handleClick(3)} className='btn-group__btn'>{convertHtmlToText(allAnswers[3])}</button>
+                {displayAnswers()}
             </div>
         </div>
     )
