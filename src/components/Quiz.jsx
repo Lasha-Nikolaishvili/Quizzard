@@ -2,7 +2,7 @@ import React from 'react'
 import Question from './Question'
 import QuizResults from './QuizResults'
 
-export default function Quiz({setHasStarted}) {
+export default function Quiz({apiQueryString, setHasStarted}) {
     const [questionNum, setQuestionNum] = React.useState(0);
     const [quizData, setQuizData] = React.useState([]);
     const [userAnswers, setUserAnswers] = React.useState([]);
@@ -10,7 +10,7 @@ export default function Quiz({setHasStarted}) {
     React.useEffect(() => {
         async function fetchQuizData() {
             try {
-                const res = await fetch('https://opentdb.com/api.php?amount=5&type=multiple');
+                const res = await fetch(apiQueryString);
                 const json = await res.json()
                 setQuizData(json.results)
             } catch (error) {

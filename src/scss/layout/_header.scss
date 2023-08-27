@@ -1,11 +1,19 @@
 header {
-    padding: 1rem;
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
 
-    img {
-        width: 3rem;
-        height: 3rem;
-        cursor: pointer;
-        user-select: none;
-        -webkit-user-drag: none;
-    }
+	img {
+		width: 3rem;
+		height: 3rem;
+		cursor: pointer;
+		user-select: none;
+		-webkit-user-drag: none;
+	}
+
+	.cauldron {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+	}
 }

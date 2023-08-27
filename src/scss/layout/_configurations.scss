@@ -1,0 +1,76 @@
+@use "../util/" as u;
+
+.configurations {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	transform: translate(-50%, -50%) scale(0);
+	width: 20em;
+	height: 20em;
+	background-color: var(--background-color);
+	box-shadow: 0 0 u.em(100) u.em(5) #0095ff95;
+	border-radius: u.em(10);
+	padding: 2rem;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	transition: 200ms ease-in-out;
+
+	&__btn {
+		position: absolute;
+		bottom: 1rem;
+		right: 1rem;
+
+		margin-top: 2rem;
+		@include u.blue-btn();
+		border: none;
+		transition: 200ms;
+
+		background: url("/src/assets/magic_wand.svg");
+		background-position: center;
+		background-size: 3rem;
+		background-repeat: no-repeat;
+		width: 4rem;
+		height: 4rem;
+
+		&:hover {
+			background: url("/src/assets/magic_wand_dark.svg");
+			background-color: var(--primary-color);
+			box-shadow: 0px 5px 10px 2px #0095ff95;
+			transform: translateY(-5px);
+			background-position: center;
+			background-size: 3rem;
+			background-repeat: no-repeat;
+		}
+	}
+}
+
+.configurations.active {
+	transform: translate(-50%, -50%) scale(1);
+}
+
+input,
+select {
+	height: 2rem;
+}
+
+.overlay {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 100vh; 
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 1;
+	pointer-events: none;
+	opacity: 0;
+	transition: 200ms ease-in-out;
+}
+
+.overlay.active {
+	pointer-events: all;
+	opacity: 1;
+}
