@@ -38,6 +38,7 @@ export default function Configuration({openConfig, handleConfig, setApiQueryStri
                     placeholder="Enter a number [5-50]"
                     onChange={handleChange}
                     value={formData.amount}
+                    required
                 />
             </div>
             <div className="configurations__input-group">

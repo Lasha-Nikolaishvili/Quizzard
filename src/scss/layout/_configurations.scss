@@ -8,25 +8,27 @@
 	transform: translate(-50%, -50%) scale(0);
 	max-width: 22em;
 	height: 22em;
-	margin: .5rem;
+	margin: .5rem 0;
 	background-color: var(--background-color);
 	box-shadow: 0 0 u.em(100) u.em(5) #0095ff95;
 	border-radius: u.em(10);
-	padding: 2rem;
+	padding: 2em;
+
+	font-size: 19px;
 
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	gap: 1em;
 
 	transition: 200ms ease-in-out;
 
 	&__input-group {
 		display: flex;
 		flex-direction: column;
-		gap: .25rem;
+		gap: .25em;
 
 		label {
-			font-size: .8rem;
+			font-size: .8em;
 			color: var(--primary-color);
 			&::selection {
 				color: var(--text-color);
@@ -34,15 +36,15 @@
 		}
 
 		input {
-			font-size: 1rem;
+			font-size: 1em;
 			color: var(--primary-color);
 			background-color: var(--background-color);
 			border: none;
 			border-bottom: 1px solid var(--primary-color);
 			border-radius: u.em(5);
 			font-weight: bold;
-			height: 2rem;
-			padding-left: .25rem;
+			height: 2em;
+			padding-left: .25em;
 
 			&:active, &:focus-visible {
 				border-bottom: 2px solid var(--primary-color);
@@ -56,14 +58,14 @@
 		}
 		
 		select {
-			font-size: 1rem;
+			font-size: 1em;
 			background-color: var(--background-color);
 			color: var(--primary-color);
 			border: none;
 			border-bottom: 1px solid var(--primary-color);
 			border-radius: u.em(5);
 			font-weight: bold;
-			height: 2rem;
+			height: 2em;
 
 			&::-webkit-scrollbar {
 				background-color: var(--background-color);
@@ -71,13 +73,6 @@
 
 			&::-webkit-scrollbar-thumb {
 				border: u.rem(2) solid var(--primary-color);
-			}
-
-			option {
-				&:hover, &:active {
-					background-color: var(--primary-color);
-					color: var(--background-color);
-				}
 			}
 
 			&:active, &:focus-visible {
@@ -90,20 +85,20 @@
 
 	&__btn {
 		position: absolute;
-		bottom: 1rem;
-		right: 1rem;
+		bottom: 2em;
+		right: 2em;
 
-		margin-top: 2rem;
+		margin-top: 2em;
 		@include u.blue-btn();
 		border: none;
 		transition: 200ms;
 
 		background: url("/src/assets/magic_wand.svg");
 		background-position: center;
-		background-size: 3rem;
+		background-size: 3em;
 		background-repeat: no-repeat;
-		width: 4rem;
-		height: 4rem;
+		width: 4em;
+		height: 4em;
 
 		&:hover {
 			background: url("/src/assets/magic_wand_dark.svg");
@@ -111,9 +106,21 @@
 			box-shadow: 0px 5px 10px 2px #0095ff95;
 			transform: translateY(-5px);
 			background-position: center;
-			background-size: 3rem;
+			background-size: 3em;
 			background-repeat: no-repeat;
 		}
+	}
+
+	@include u.breakpoint-down(medium) {
+		font-size: 17px;
+	}
+
+	@include u.breakpoint-down(small) {
+		font-size: 13.5px;
+	}
+
+	@include u.breakpoint-down(xsmall) {
+		font-size: 12px;
 	}
 }
 
