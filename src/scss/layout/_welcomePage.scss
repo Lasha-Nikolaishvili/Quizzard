@@ -7,23 +7,36 @@
     left: 50%;
     transform: translate(-50%, -50%);
     
-    width: 60rem;
+    width: fit-content;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
 
+    gap: 3rem;
+
     &__logo-container {
+        width: u.rem(240);
+        height: u.rem(240);
+        grid-column: span 1;
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     &__logo {
-        grid-column: span 1;
         user-select: none;
         -webkit-user-drag: none;
+        width: 15rem;
+        height: 15rem;
+        
+        // position: relative;
+        // transform: translate(-50%,-50%);
+        // left: 50%;
+        // top: 50%;
     }
 
     .hat-glow {
-        position: absolute;
         display: block;
         border-radius: 50%;
         box-shadow:
@@ -32,14 +45,34 @@
             0 0 u.rem(140) u.rem(90) #0095ff4f;
         width: u.rem(1);
         height: u.rem(1);
+
+        position: absolute;
         top: 50%;
-        left: 40%;
+        left: 50%;
         transform: translate(-50%,-50%);
     }
 
     &__content {
-        grid-column: span 2;
-        
+        width: fit-content;
+    }
+
+    &__sub-title {
+        font-size: clamp(u.rem(32), u.rem(24) + 2.5vw, u.rem(46));
+        margin: 0;
+    
+        &::selection {
+            color: var(--primary-color);
+        }
+    }
+
+    &__title {
+        font-family: u.$quizzard-font;
+        color: var(--primary-color);
+        font-size: 5rem;
+
+        &::selection {
+            color: var(--text-color);
+        }
     }
 
     &__start-btn {
@@ -49,5 +82,9 @@
         font-size: 1.5rem;
         padding: .3rem 2rem;
         transition: 200ms ;       
+    }
+    
+    @include u.breakpoint-down(small) {
+        grid-template-columns: 1fr;
     }
 }

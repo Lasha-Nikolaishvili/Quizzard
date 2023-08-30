@@ -20,7 +20,8 @@ export default function WelcomeComp({setHasStarted}) {
                 <span className='hat-glow'></span>
             </div>
             <div className='grid__content'>
-                <h1 className='grid__title'>Welcome to <span className='title'>Quizzard</span></h1>
+                <h2 className='grid__sub-title'>Welcome to </h2>
+                <h1 className='grid__title'>Quizzard</h1>
                 <button className='grid__start-btn' onClick={() => setHasStarted(prev => !prev)}>Start Quiz</button>
             </div>
         </div>

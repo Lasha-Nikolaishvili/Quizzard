@@ -9,6 +9,18 @@ html {
     box-sizing: border-box;
     font-size: 100%;
     min-height: 100vh;    
+
+    @include u.breakpoint-down(medium) {
+        font-size: 12px;
+    }
+
+    @include u.breakpoint-down(small) {
+        font-size: 10px;
+    }
+
+    @include u.breakpoint-down(xsmall) {
+        font-size: 8px;
+    }
 }
 
 body {
