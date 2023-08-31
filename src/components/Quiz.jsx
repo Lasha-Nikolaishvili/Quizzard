@@ -30,7 +30,7 @@ export default function Quiz({apiQueryString, setHasStarted}) {
     return (
         <div className='quiz-window'>
             {displayQuestions()}
-            {questionNum <= quizData.length-1 && <span className='question-num'>{questionNum + 1} / {quizData.length}</span>}
+            {questionNum <= quizData.length-1 && <span className='question-num'><span className='curr-num'>{questionNum + 1}</span> / {quizData.length}</span>}
             {questionNum > quizData.length-1 && <QuizResults userAnswers = {userAnswers} setHasStarted = {setHasStarted} questionsData = {quizData}/>}
         </div>
     )

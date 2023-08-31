@@ -17,7 +17,7 @@ export default function QuizResults({userAnswers, setHasStarted, questionsData})
 
     return (
         <div className="results">
-            <h1 className="results__score">You got {calCorrectCnt(userAnswers)} / {questionsData.length} </h1>
+            <h1 className="results__score">You scored {calCorrectCnt(userAnswers)} / {questionsData.length} </h1>
             {displayResults()}
             <button className="results__start-over-btn" onClick={() => setHasStarted((prev) => !prev)}>Start Over</button>
         </div>
