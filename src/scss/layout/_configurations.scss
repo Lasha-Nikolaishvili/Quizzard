@@ -1,26 +1,7 @@
 @use "../util/" as u;
 
 .configurations {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	z-index: 1;
-	transform: translate(-50%, -50%) scale(0);
-	max-width: 22em;
-	height: 22em;
-	margin: .5rem 0;
-	background-color: var(--background-color);
-	box-shadow: 0 0 u.em(100) u.em(5) #0095ff95;
-	border-radius: u.em(10);
-	padding: 2em;
-
-	font-size: 19px;
-
-	display: flex;
-	flex-direction: column;
-	gap: 1em;
-
-	transition: 200ms ease-in-out;
+	@include u.popupStyles();
 
 	&__input-group {
 		display: flex;
@@ -110,38 +91,10 @@
 			background-repeat: no-repeat;
 		}
 	}
-
-	@include u.breakpoint-down(medium) {
-		font-size: 17px;
-	}
-
-	@include u.breakpoint-down(small) {
-		font-size: 13.5px;
-	}
-
-	@include u.breakpoint-down(xsmall) {
-		font-size: 12px;
-	}
 }
 
 .configurations.active {
 	transform: translate(-50%, -50%) scale(1);
 }
 
-.overlay {
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	width: 100vw;
-	height: 100vh; 
-	background: rgba(0, 0, 0, 0.7);
-	z-index: 1;
-	pointer-events: none;
-	opacity: 0;
-	transition: 200ms ease-in-out;
-}
-
-.overlay.active {
-	pointer-events: all;
-	opacity: 1;
-}
+@include u.overlayStyles();

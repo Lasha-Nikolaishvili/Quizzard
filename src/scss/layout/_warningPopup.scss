@@ -1,0 +1,43 @@
+@use '../util/' as u;
+
+.warning-popup {
+    @include u.popupStyles();
+    justify-content: space-between;
+    font-size: 20px;
+
+    &__header {
+        margin: 0;
+        font-family: u.$quizzard-font;
+        color: red;
+        text-align: center;
+        text-shadow: 0px 0px 15px red;
+        font-size: 3em;
+
+        &::selection {
+            color: var(--text-color);
+        }
+    }
+
+    &__text {
+        color: var(--primary-color);
+        font-size: 1em;
+
+        &::selection {
+            color: var(--text-color);
+        }
+    }
+
+    &__btn {
+        @include u.blue-btn();
+        padding: .5em 1em;
+        font-size: 1em;
+        
+        @include u.blue-btn-action();
+    }
+}
+
+.warning-popup.active {
+	transform: translate(-50%, -50%) scale(1);
+}
+
+@include u.overlayStyles();
