@@ -1,13 +1,23 @@
 @use './functions' as f;
 @use './breakpoints' as b;
 
-@mixin blue-btn() {
+@mixin btn() {
     font-family: inherit;
     background-color: var(--background-color);
-    color: var(--primary-color);
-    border: f.rem(2) solid var(--primary-color);
     border-radius: f.rem(10);
     cursor: pointer;
+}
+
+@mixin blue-btn() {
+    @include btn();
+    color: var(--primary-color);
+    border: f.rem(2) solid var(--primary-color);
+}
+
+@mixin red-btn() {
+    @include btn();
+    color:red;
+    border: f.rem(2) solid red;
 }
 
 @mixin blue-btn-action() {
@@ -17,6 +27,21 @@
         background-color: var(--primary-color);
         color: var(--background-color);
         box-shadow: 0px 5px 10px 2px #0095ff95;
+        transform: translateY(-5px);
+    }
+
+    &:active {
+        transform: scale(.98);
+    }
+}
+
+@mixin red-btn-action() {
+    transition: 200ms ;
+
+    &:hover {
+        background-color: red;
+        color: var(--background-color);
+        box-shadow: 0px 5px 10px 2px color.scale(red, $lightness: -60%);;
         transform: translateY(-5px);
     }
 

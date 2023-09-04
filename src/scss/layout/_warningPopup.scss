@@ -27,12 +27,20 @@
         }
     }
 
-    &__btn {
+    &__proceed-btn {
         @include u.blue-btn();
         padding: .5em 1em;
         font-size: 1em;
         
         @include u.blue-btn-action();
+    }
+
+    &__quit-btn {
+        @include u.red-btn();
+        padding: .5em 1em;
+        font-size: 1em;
+        
+        @include u.red-btn-action();
     }
 }
 
