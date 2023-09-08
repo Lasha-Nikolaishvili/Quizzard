@@ -1,4 +1,5 @@
 import React from 'react'
+import anime from 'animejs'
 
 export default function Question({questionData, setQuestionNum, setUserAnswers}) {
     const {correct_answer: correctAnswer, incorrect_answers: incorrectAnswers, question} = questionData
@@ -25,6 +26,35 @@ export default function Question({questionData, setQuestionNum, setUserAnswers})
             <button key={i} onClick={() => handleClick(i)} className='btn-group__btn'>{convertHtmlToText(answer)}</button>
         ))
     }
+
+    React.useEffect(() => {
+        anime({
+            targets: '.question, .btn-group__btn, .question-num',
+            opacity: 1,
+            easing: 'easeInQuart',
+            delay: anime.stagger(50)
+        });
+
+        const optionBtns = document.querySelectorAll('.btn-group__btn')
+
+        optionBtns.forEach((el) => {
+            el.addEventListener('mouseenter', () => {
+                anime({
+                    targets: el,
+                    translateY: -5,
+                })
+            })
+        })
+
+        optionBtns.forEach((el) => {
+            el.addEventListener('mouseleave', () => {
+                anime({
+                    targets: el,
+                    translateY: 0,
+                })
+            })
+        })
+    }, [])
 
     return (
         <div>

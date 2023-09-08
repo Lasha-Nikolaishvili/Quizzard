@@ -5,8 +5,24 @@ import quizzardLogo  from '../assets/quizzard_logo.svg'
 export default function WelcomeComp({setHasStarted}) {
 
     React.useEffect(() => {
+        const tl = anime.timeline({
+
+        })
+        tl.add({
+            targets: '.grid__logo, .hat-glow, .grid__sub-title, .grid__title, .grid__start-btn',
+            opacity: 1,
+            scale: [.95, 1],
+            easing: 'easeInQuart',
+            delay: anime.stagger(250)
+        });
+
+        tl.add({
+            targets: '.grid__title',
+            textShadow: '0px 0px 10px rgb(0 148 255)'
+        }, '+=200');
+
         anime({
-            targets: '.grid__logo .hat-glow',
+            targets: '.grid__logo',
             direction: 'alternate',
             loop: true,
             easing: 'linear',
@@ -14,6 +30,31 @@ export default function WelcomeComp({setHasStarted}) {
             rotate: [-5, 5],
             autoplay: true
         });
+
+        anime({
+            targets: '.hat-glow',
+            direction: 'alternate',
+            loop: true,
+            easing: 'linear',
+            translateY: [-25, 25],
+            scale: [1, .85],
+            rotate: [-5, 5],
+            autoplay: true
+        });
+
+        document.querySelector('.grid__start-btn').addEventListener('mouseover', () => {
+            anime({
+                targets: '.grid__start-btn',
+                translateY: -5,
+            })
+        })
+
+        document.querySelector('.grid__start-btn').addEventListener('mouseleave', () => {
+            anime({
+                targets: '.grid__start-btn',
+                translateY: 0,
+            })
+        })
     }, [])
 
     return (

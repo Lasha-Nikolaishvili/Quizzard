@@ -20,7 +20,8 @@ export default function Configuration({openConfig, handleConfig, setApiQueryStri
             }
         ) )
     }
-    console.log(formData)
+
+    
 
     React.useEffect(() => {
         const { amount, category, difficulty, type } = formData;

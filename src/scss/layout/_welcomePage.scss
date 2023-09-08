@@ -29,6 +29,7 @@
         -webkit-user-drag: none;
         width: 15rem;
         height: 15rem;
+        opacity: 0;
     }
 
     .hat-glow {
@@ -40,7 +41,7 @@
             0 0 u.rem(140) u.rem(90) #0095ff4f;
         width: u.rem(1);
         height: u.rem(1);
-
+        opacity: 0;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -54,7 +55,7 @@
     &__sub-title {
         font-size: clamp(u.rem(32), u.rem(24) + 2.5vw, u.rem(46));
         margin: 0;
-    
+        opacity: 0;
         &::selection {
             color: var(--primary-color);
         }
@@ -64,7 +65,7 @@
         font-family: u.$quizzard-font;
         color: var(--primary-color);
         font-size: 5rem;
-
+        opacity: 0;
         &::selection {
             color: var(--text-color);
         }
@@ -73,7 +74,7 @@
     &__start-btn {
         @include u.blue-btn();
         @include u.blue-btn-action();
-
+        opacity: 0;
         font-size: 1.5rem;
         padding: .3rem 2rem;
         transition: 200ms ;       

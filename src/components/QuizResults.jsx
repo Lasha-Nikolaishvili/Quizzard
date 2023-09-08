@@ -1,4 +1,5 @@
 import React from "react"
+import anime from 'animejs'
 import Result from './Result'
 
 export default function QuizResults({userAnswers, setHasStarted, questionsData}) {
@@ -14,6 +15,15 @@ export default function QuizResults({userAnswers, setHasStarted, questionsData})
             return <Result key={i} questionData = {question} userAnswer = {userAnswers[i]}/>
         })
     }
+
+    React.useEffect(() => {
+        anime({
+            targets: '.results__score, .result',
+            opacity: 1,
+            easing: 'easeInQuart',
+            delay: anime.stagger(50) 
+        });
+    }, [])
 
     return (
         <div className="results">
