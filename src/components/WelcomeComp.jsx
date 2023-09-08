@@ -4,15 +4,17 @@ import quizzardLogo  from '../assets/quizzard_logo.svg'
 
 export default function WelcomeComp({setHasStarted}) {
 
-    anime({
-        targets: '.grid__logo .hat-glow',
-        direction: 'alternate',
-        loop: true,
-        easing: 'linear',
-        translateY: [-25, 25],
-        rotate: [-5, 5],
-        autoplay: true
-    });
+    React.useEffect(() => {
+        anime({
+            targets: '.grid__logo .hat-glow',
+            direction: 'alternate',
+            loop: true,
+            easing: 'linear',
+            translateY: [-25, 25],
+            rotate: [-5, 5],
+            autoplay: true
+        });
+    }, [])
 
     return (
         <div className='grid'>

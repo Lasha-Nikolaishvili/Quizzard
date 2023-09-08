@@ -4,6 +4,16 @@
     position: relative;
     width: 50em;
 
+    .loading-msg {
+        text-align: center;
+        font-size: 4em;
+        color: var(--primary-color);
+
+        &::selection {
+            color: var(--text-color);
+        }
+    }
+
     .question-num {
         position: absolute;
         right: 0;

@@ -1,11 +1,14 @@
 import React from "react"
 
 export default function Configuration({openConfig, handleConfig, setApiQueryString}) {
-    const [formData, setFormData] = React.useState({
-        amount: 5,
-        category: "",
-        difficulty: "",
-        type: 'multiple'
+    const [formData, setFormData] = React.useState( () => {
+        return JSON.parse(localStorage.getItem('formData')) ||
+        {
+            amount: 5,
+            category: "",
+            difficulty: "",
+            type: 'multiple'
+        }
     })
 
     function handleChange(event) {
@@ -17,13 +20,16 @@ export default function Configuration({openConfig, handleConfig, setApiQueryStri
             }
         ) )
     }
+    console.log(formData)
 
     React.useEffect(() => {
         const { amount, category, difficulty, type } = formData;
         setApiQueryString(
           `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`
         );
-      }, [formData, setApiQueryString]);
+
+        localStorage.setItem('formData', JSON.stringify(formData))
+      }, [formData]);
 
     return (
         <div className={openConfig ? "configurations active" : "configurations"} >
