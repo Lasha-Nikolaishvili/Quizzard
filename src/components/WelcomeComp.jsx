@@ -5,9 +5,8 @@ import quizzardLogo  from '../assets/quizzard_logo.svg'
 export default function WelcomeComp({setHasStarted}) {
 
     React.useEffect(() => {
-        const tl = anime.timeline({
-
-        })
+        const tl = anime.timeline({})
+        
         tl.add({
             targets: '.grid__logo, .hat-glow, .grid__sub-title, .grid__title, .grid__start-btn',
             opacity: 1,
@@ -18,7 +17,7 @@ export default function WelcomeComp({setHasStarted}) {
 
         tl.add({
             targets: '.grid__title',
-            textShadow: '0px 0px 10px rgb(0 148 255)'
+            textShadow: '0px 0px 15px rgb(0 148 255)'
         }, '+=200');
 
         anime({
@@ -55,6 +54,10 @@ export default function WelcomeComp({setHasStarted}) {
                 translateY: 0,
             })
         })
+
+        return () => {
+            anime.remove('.grid__start-btn, .grid__logo, .hat-glow, .grid__sub-title, .grid__title, .grid__start-btn')
+        }
     }, [])
 
     return (

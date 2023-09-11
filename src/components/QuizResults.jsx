@@ -21,8 +21,13 @@ export default function QuizResults({userAnswers, setHasStarted, questionsData})
             targets: '.results__score, .result',
             opacity: 1,
             easing: 'easeInQuart',
-            delay: anime.stagger(50) 
+            delay: anime.stagger(50),
+            duration: 300 
         });
+
+        return () => {
+            anime.remove('.results__score, .result')
+        }
     }, [])
 
     return (

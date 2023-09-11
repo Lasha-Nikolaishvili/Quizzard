@@ -32,7 +32,8 @@ export default function Question({questionData, setQuestionNum, setUserAnswers})
             targets: '.question, .btn-group__btn, .question-num',
             opacity: 1,
             easing: 'easeInQuart',
-            delay: anime.stagger(50)
+            delay: anime.stagger(100),
+            duration: 200
         });
 
         const optionBtns = document.querySelectorAll('.btn-group__btn')
@@ -54,6 +55,11 @@ export default function Question({questionData, setQuestionNum, setUserAnswers})
                 })
             })
         })
+
+        return () => {
+            anime.remove('.question, .btn-group__btn, .question-num')
+            anime.remove(optionBtns)
+        }
     }, [])
 
     return (

@@ -2,6 +2,7 @@ import anime from 'animejs';
 import React from 'react'
 import Question from './Question'
 import QuizResults from './QuizResults'
+import Loading from './Loading'
 
 export default function Quiz({apiQueryString, setHasStarted}) {
     const [questionNum, setQuestionNum] = React.useState(0);
@@ -22,6 +23,10 @@ export default function Quiz({apiQueryString, setHasStarted}) {
         fetchQuizData();
     }, [])
 
+    React.useEffect(() => {
+
+    })
+
     function displayQuiz() {
         
        return  <>
@@ -34,7 +39,7 @@ export default function Quiz({apiQueryString, setHasStarted}) {
 
     return (
         <div className='quiz-window'>
-            {quizData.length !== 0 ? displayQuiz() : <h1 className='loading-msg'>loading...</h1>}
+            {quizData.length !== 0 ? displayQuiz() : <Loading />}
             {quizData.length !== 0 && questionNum > quizData.length-1 && <QuizResults userAnswers = {userAnswers} setHasStarted = {setHasStarted} questionsData = {quizData}/>}
         </div>
     )
