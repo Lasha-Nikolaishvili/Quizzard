@@ -29,4 +29,4 @@ _Built using **React**, **SCSS** and **[Open Trivia Database](https://opentdb.co
   * Science: Gadgets
   * Entertainment: Japanese Anime &amp; Manga
   * Entertainment: Cartoon &amp; Animations
-* User preferences are stored in , **local storage**.
+* User preferences are stored in **local storage**.
