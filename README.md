@@ -1,8 +1,32 @@
-# React + Vite
+# Quizzard
+_Built using **React**, **SCSS** and **[Open Trivia Database](https://opentdb.com/)**_
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+* Users can select the **amount** and **difficulty** of questions.
+* They can also choose between different **topics**:
+  * Any Category
+  * General Knowledge
+  * Entertainment: Books
+  * Entertainment: Film
+  * Entertainment: Music
+  * Entertainment: Musicals  Theatres
+  * Entertainment: Television
+  * Entertainment: Video Games
+  * Entertainment: Board Games
+  * Science &amp; Nature
+  * Science: Computers
+  * Science: Mathematics
+  * Mythology
+  * Sports
+  * Geography
+  * History
+  * Politics
+  * Art
+  * Celebrities
+  * Animals
+  * Vehicles
+  * Entertainment: Comics
+  * Science: Gadgets
+  * Entertainment: Japanese Anime &amp; Manga
+  * Entertainment: Cartoon &amp; Animations
+* User preferences are stored in , **local storage**.
