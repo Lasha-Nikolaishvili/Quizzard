@@ -1,5 +1,5 @@
 # Quizzard
-_Built using **React**, **SCSS** and **[Open Trivia Database](https://opentdb.com/)**_
+_Quiz Web App Built using **React**, **SCSS** and **[Open Trivia Database](https://opentdb.com/)**_
 
 ## Features
 * Users can select the **amount** and **difficulty** of questions.
