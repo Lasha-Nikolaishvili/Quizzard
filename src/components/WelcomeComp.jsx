@@ -3,6 +3,19 @@ import anime from 'animejs'
 import quizzardLogo  from '../assets/quizzard_logo.svg'
 
 export default function WelcomeComp({setHasStarted}) {
+    function buttonUp() {
+        anime({
+            targets: '.grid__start-btn',
+            translateY: -5,
+        })
+    }
+
+    function buttonDown() {
+        anime({
+            targets: '.grid__start-btn',
+            translateY: 0,
+        })
+    }
 
     React.useEffect(() => {
         const tl = anime.timeline({})
@@ -41,20 +54,6 @@ export default function WelcomeComp({setHasStarted}) {
             autoplay: true
         });
 
-        document.querySelector('.grid__start-btn').addEventListener('mouseover', () => {
-            anime({
-                targets: '.grid__start-btn',
-                translateY: -5,
-            })
-        })
-
-        document.querySelector('.grid__start-btn').addEventListener('mouseleave', () => {
-            anime({
-                targets: '.grid__start-btn',
-                translateY: 0,
-            })
-        })
-
         return () => {
             anime.remove('.grid__start-btn, .grid__logo, .hat-glow, .grid__sub-title, .grid__title, .grid__start-btn')
         }
@@ -69,7 +68,13 @@ export default function WelcomeComp({setHasStarted}) {
             <div className='grid__content'>
                 <h2 className='grid__sub-title'>Welcome to </h2>
                 <h1 className='grid__title'>Quizzard</h1>
-                <button className='grid__start-btn' onClick={() => setHasStarted(prev => !prev)}>Start Quiz</button>
+                <button 
+                    className='grid__start-btn' 
+                    onClick={() => setHasStarted(prev => !prev)}
+                    onMouseOver={buttonUp} 
+                    onMouseLeave={buttonDown} >
+                    Start Quiz
+                </button>
             </div>
         </div>
     )

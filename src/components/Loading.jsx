@@ -34,7 +34,7 @@ export default function loading() {
         <div className='loading-cont'>
             <img className='wizard' src={wizard} alt="flying wizard" />
             <div className="circle-small"></div>
-            <div className="circle-large"></div>
+            <div className="ring"></div>
         </div>
     )
 }

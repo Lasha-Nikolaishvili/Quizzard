@@ -21,13 +21,11 @@ export default function Configuration({openConfig, handleConfig, setApiQueryStri
         ) )
     }
 
-    
-
     React.useEffect(() => {
         const { amount, category, difficulty, type } = formData;
         setApiQueryString(
           `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`
-        );
+        )
 
         localStorage.setItem('formData', JSON.stringify(formData))
       }, [formData]);

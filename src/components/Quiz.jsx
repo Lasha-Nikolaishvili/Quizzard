@@ -1,20 +1,39 @@
-import anime from 'animejs';
 import React from 'react'
 import Question from './Question'
 import QuizResults from './QuizResults'
 import Loading from './Loading'
 
 export default function Quiz({apiQueryString, setHasStarted}) {
-    const [questionNum, setQuestionNum] = React.useState(0);
-    const [quizData, setQuizData] = React.useState([]);
-    const [userAnswers, setUserAnswers] = React.useState([]);
+    const [questionNum, setQuestionNum] = React.useState(0)
+    const [quizData, setQuizData] = React.useState([])
+    const [userAnswers, setUserAnswers] = React.useState([])
 
+    function shuffleArray(array) {
+        return array.slice().sort(() => Math.random() - 0.5)
+    }
+
+    function convertHtmlToText(html) {
+        const parser = new DOMParser()
+        const doc = parser.parseFromString(html, 'text/html')
+        return doc.body.textContent || "";
+    }
+
+    function formatData(data) {
+        return data.map((obj) => {
+            return {
+                question: convertHtmlToText(obj.question),
+                correctAnswer: convertHtmlToText(obj.correct_answer),
+                allAnswers: shuffleArray([...obj.incorrect_answers.map((ans => convertHtmlToText(ans))), obj.correct_answer])
+            }
+        })
+    }
+    
     React.useEffect(() => {
         async function fetchQuizData() {
             try {
-                const res = await fetch(apiQueryString);
+                const res = await fetch(apiQueryString)
                 const json = await res.json()
-                setQuizData(json.results)
+                setQuizData(formatData(json.results))
             } catch (error) {
                 console.log(error)
             }
@@ -22,10 +41,6 @@ export default function Quiz({apiQueryString, setHasStarted}) {
 
         fetchQuizData();
     }, [])
-
-    React.useEffect(() => {
-
-    })
 
     function displayQuiz() {
         
